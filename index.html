@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+
+<div style="float: left; width: 800px; height: 800px; overflow: auto; border: solid 1px black">
+<div id="inner">
+<canvas id="canvas" width="800" height="800"></canvas>
+</div>
+</div>
+
+<div style="float: left">
+
+  <span>Rotation:</span>&nbsp;<div class="btn-group" role="group" aria-label="...">
+    <button id="left" type="button" class="btn btn-default" alt="Left"><span class="glyphicon glyphicon-triangle-left"></span></button>
+    <button id="right" type="button" class="btn btn-default" alt="Right"><span class="glyphicon glyphicon-triangle-right"></span></button>
+  </div>
+  <div>
+    <span id="actionLabel">Place Tile</span>:&nbsp;<button id="action" type="button" class="btn btn-default" alt="Right">Ok</button>
+  </div>
+  <div>
+    <ul id="players"></ul>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+<script src="scripts/utils.js"></script>
+<script src="scripts/tile-definitions.js"></script>
+<script src="scripts/carcassonne.js"></script>
+<script src="scripts/carcassonne-ui.js"></script>
+<script>
+$(document).ready(function() {
+  var persistedState = '{"players":[{"name":"Player1","email":"player1@tutu.com","color":0,"points":14},{"name":"Player2","email":"player2@tutu.com","color":3,"points":0}],"cells":[{"x":2,"y":4,"rot":0,"tile":13,"follower":null},{"x":2,"y":3,"rot":3,"tile":9,"follower":null},{"x":1,"y":3,"rot":1,"tile":2,"follower":{"zone":2,"color":3}},{"x":3,"y":4,"rot":1,"tile":1,"follower":{"zone":1,"color":0}},{"x":1,"y":2,"rot":2,"tile":14,"follower":{"zone":2,"color":3}},{"x":3,"y":5,"rot":3,"tile":22,"follower":null},{"x":2,"y":5,"rot":2,"tile":4,"follower":null},{"x":1,"y":4,"rot":2,"tile":21,"follower":null},{"x":2,"y":2,"rot":1,"tile":6,"follower":null},{"x":4,"y":5,"rot":0,"tile":16,"follower":null},{"x":1,"y":1,"rot":0,"tile":1,"follower":null},{"x":4,"y":4,"rot":3,"tile":23,"follower":{"zone":0,"color":0}}]}';
+  initializeUI(".", "player1@tutu.com", persistedState);
+});
+</script>
+</body>
+</html>
