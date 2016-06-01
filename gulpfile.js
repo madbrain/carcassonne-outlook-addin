@@ -10,6 +10,7 @@ var $ = require('gulp-load-plugins')({ lazy: true });
 var del = require('del');
 var runSequence = require('run-sequence');
 var Xml2Js = require('xml2js');
+var karma = require('karma');
 
 var config = {
     release: './dist'
@@ -240,3 +241,11 @@ gulp.task('dist', function () {
         ['dist-minify']
         );
 });
+
+gulp.task('test', function (done) {
+  new karma.Server({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done).start();
+});
+
