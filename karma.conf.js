@@ -6,6 +6,7 @@ module.exports = function(config) {
     reporters: ['spec'],
     plugins: [
       'karma-jasmine',
+      'karma-jasmine-matchers',
       'karma-phantomjs-launcher',
       'karma-spec-reporter'],
     files: [
